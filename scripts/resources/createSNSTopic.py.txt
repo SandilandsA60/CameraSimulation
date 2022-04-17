@@ -1,0 +1,19 @@
+#Adam Sandilands s2032103
+#import required resources
+import boto3 
+
+#low-level client representing Amazon Simple Notification Service (SNS)
+client = boto3.client('sns')
+
+#creates topic
+response = client.create_topic(
+    #Sets topic name as type string
+    Name='mySNSTopicS2032103',
+    #Sets attributes
+    Attributes={
+        #Sets the name of the SNS that will be displayed. 
+        'DisplayName': 'My SNS Topic s2032103'
+    },
+    
+    # All are default. 
+)

@@ -1,0 +1,16 @@
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1648821504153",
+    "Statement": [
+        {
+            "Sid": "Stmt1648821495823",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:PutObject",
+                "s3:PutObjectAcl"
+            ],
+            "Resource": "arn:aws:s3:::s3bucket2s2032103/*"
+        }
+    ]
+}

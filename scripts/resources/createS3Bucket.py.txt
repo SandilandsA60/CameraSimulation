@@ -1,0 +1,18 @@
+#Adam Sandilands s2032103
+#imported resources 
+import boto3
+
+#low-level client representing Amazon Simple Storage Service (S3)
+client = boto3.client('s3')
+
+
+#Creates a new S3 bucket
+response = client.create_bucket(
+    #The canned ACL to apply to the bucket.
+    ACL='private',
+    #The name of the bucket to create.
+    Bucket='s3bucket2s2032103',
+
+)
+
+#All other setting where not specified, setting all to default. 

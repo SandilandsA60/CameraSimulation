@@ -1,0 +1,38 @@
+#Adam Sandilands s2032103
+#imports required resources 
+import boto3
+
+# low-level client represents the ec2 with region set to verginia USA
+client = boto3.client('ec2', region_name='us-east-1')
+
+# launches instances with specified details
+response = client.run_instances(
+   # Defines ESB volumes
+    BlockDeviceMappings=[
+        {
+            'DeviceName': '/dev/xvda',
+            'Ebs': {
+
+                'DeleteOnTermination': True,
+                'VolumeSize': 8,
+                'VolumeType': 'gp2'
+            },
+        },
+    ],
+    # The id which is required for the instace to launch
+    ImageId='ami-0c02fb55956c7d316',
+    # Determines the performance and can effect cost of running the instance. 
+    InstanceType='t3.micro',
+    MaxCount=1,
+    MinCount=1,
+    
+    KeyName = 'vockey',
+    Monitoring={
+        'Enabled': False
+    },
+  #Determines the ARN of the IAM instance profile, needed to allow images to be uploaded to be uploaded to the s3 from the instance
+ IamInstanceProfile={
+        'Arn': 'arn:aws:iam::212211677060:instance-profile$
+    },
+
+
